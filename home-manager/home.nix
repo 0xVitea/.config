@@ -9,6 +9,10 @@
 
 	# Install packages
 	home.packages = [
+
+        # NeoVim
+        pkgs.neovim
+
         # Fonts
         pkgs.fira-mono
 
@@ -29,6 +33,8 @@
     # Configure git
     programs.git = {
         enable = true;
+        userName = "vrusnac";
+        userEmail = "victor.rusnac20@gmail.com";
         aliases = {
             s = "status";
         };
