@@ -26,9 +26,43 @@
         };
   };
 
+    # Configure git
+    programs.git = {
+        enable = true;
+        aliases = {
+            s = "status";
+        };
+        extraConfig = {
+            color = {
+                ui = "auto";
+            };
+            core = {
+                excludesfile = "~/.config/git/.gitignore_global";
+            };
+        };
+    };
+
     # Configure zsh
     programs.zsh = {
         enable = true;
+        enableAutosuggestions = true;
+        enableCompletion = true;
+        syntaxHighlighting.enable = true;
+        dotDir = ".config/zsh";
+
+        zplug = {
+            enable = true;
+            plugins = [
+                { name = "zsh-users/zsh-autosuggestions"; }
+            ];
+        };
+
+        oh-my-zsh = {
+            enable = true;
+            plugins = [ "git" ];
+            theme = "robbyrussell";
+        };
+
     };
 
 }
