@@ -9,12 +9,15 @@
 
 	# Install packages
 	home.packages = [
+        
+        # Programming languages
+        pkgs.go pkgs.nodejs_21
 
         # Fonts
         pkgs.fira-mono
 
         # Utils
-        pkgs.nix pkgs.heroku
+        pkgs.nix pkgs.heroku pkgs.ripgrep
 	];
 
     # Configure vim
@@ -74,10 +77,7 @@
         plugins = with pkgs.vimPlugins; [
             packer-nvim
         ];
-        extraLuaConfig = ''
-            ${builtins.readFile ./nvim/init.lua}
-        '';
-
+        extraLuaConfig = "require('core')";
 
     };
 }
