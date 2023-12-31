@@ -1,15 +1,5 @@
 { config, pkgs, lib, ... }:
 
-let
-  fromGitHub = ref: repo: pkgs.vimUtils.buildVimPlugin {
-    pname = "${lib.strings.sanitizeDerivationName repo}";
-    version = ref;
-    src = builtins.fetchGit {
-      url = "https://github.com/${repo}.git";
-      ref = ref;
-    };
-  };
-in
 {
     # Let home manager install and manage itself
     programs.home-manager.enable = true;
@@ -79,14 +69,9 @@ in
 
     # Configure neovim
     programs.neovim =
-    let
-        toLua = str: "lua << EOF\n${str}\nEOF\n";
-        toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-    in
     {
         enable = true;
         plugins = with pkgs.vimPlugins; [
-            (fromGitHub "HEAD" "rebelot/kanagawa.nvim")
             packer-nvim
         ];
         extraLuaConfig = ''
