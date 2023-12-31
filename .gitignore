@@ -2,4 +2,9 @@
 /iterm2
 /git/config
 /zsh
-/nvim
+
+# Ignore automatically generated init lua by nix
+/nvim/init.lua
+
+# Ignore packer plugin
+/nvim/plugin

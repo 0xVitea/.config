@@ -90,8 +90,7 @@ in
             packer-nvim
         ];
         extraLuaConfig = ''
-            ${builtins.readFile ./nvim/remap.lua}
-            ${builtins.readFile ./nvim/packer.lua}
+            ${builtins.readFile ./nvim/init.lua}
         '';
 
 
