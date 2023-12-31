@@ -11,7 +11,7 @@
 	home.packages = [
         
         # Programming languages
-        pkgs.go pkgs.nodejs_21
+        pkgs.go pkgs.nodejs_21 pkgs.rustup
 
         # Fonts
         pkgs.fira-mono
@@ -64,7 +64,7 @@
 
         oh-my-zsh = {
             enable = true;
-            plugins = [ "git" ];
+            plugins = [ "git" "rust" "golang" ];
             theme = "robbyrussell";
         };
 
