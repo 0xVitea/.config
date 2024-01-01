@@ -8,3 +8,6 @@
 
 # Ignore packer plugin
 /nvim/plugin
+
+# Ignore tmux configuration file
+/tmux/tmux.conf

@@ -64,10 +64,26 @@
 
         oh-my-zsh = {
             enable = true;
-            plugins = [ "git" "rust" "golang" ];
+            plugins = [ "git" "rust" "golang" "tmux" ];
             theme = "robbyrussell";
         };
 
+    };
+
+    programs.tmux = {
+        enable = true;
+        plugins = with pkgs.tmuxPlugins; [
+            vim-tmux-navigator
+        ];
+        extraConfig = ''
+            # Terminal Colour
+            set -ga terminal-overrides ",*256col*:Tc"
+
+            # Set prefixes
+            unbind C-b
+            set -g prefix C-a
+            bind C-a send-prefix
+        '';
     };
 
     # Configure neovim
